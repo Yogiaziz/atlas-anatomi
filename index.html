@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlas Anatomi Tubuh</title>
+<meta name="description" content="Atlas anatomi tubuh untuk edukasi pasien: tunjukkan letak keluhan langsung pada gambar anatomi.">
+<meta name="theme-color" content="#0F6CBD">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F6CBD'/%3E%3Ccircle cx='16' cy='9' r='3' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 14v8m-6-5h12m-9 9 3-8 3 8' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
+<link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-shell="public" data-page="home">
+<a class="skip" href="#main">Lewati ke konten</a>
+<div id="offline" class="offline" hidden><span data-ic="wifiOff"></span> Anda sedang offline. Data yang tersimpan tetap bisa dilihat.</div>
+
+<!-- ============ SHELL PUBLIK ============ -->
+<header class="pubbar" id="pubbar">
+  <div class="pubbar-in">
+    <a class="brand" href="#/" aria-label="Atlas Anatomi Tubuh, beranda">
+      <span class="brand-mark" data-ic="body"></span><span class="brand-name">Atlas Anatomi Tubuh</span>
+    </a>
+    <div class="search" id="search">
+      <span class="search-ic" data-ic="search"></span>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Cari bagian tubuh, mis. lutut, jantung, ligamen..." aria-label="Cari bagian tubuh" role="combobox" aria-expanded="false" aria-controls="sugg" aria-autocomplete="list">
+      <kbd class="search-kbd" id="kbd">⌘K</kbd>
+      <button type="button" class="search-clear" id="qclear" hidden aria-label="Hapus pencarian" data-ic="x"></button>
+      <div class="sugg" id="sugg" role="listbox" hidden></div>
+    </div>
+    <a class="btn btn-dashed pub-doc" id="btnDokter" href="#/masuk"><span data-ic="steth"></span><span class="pub-doc-t">Masuk Dokter</span></a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section id="view-home" class="view" hidden></section>
+  <section id="view-search" class="view" hidden></section>
+  <section id="view-detail" class="view" hidden></section>
+  <section id="view-login" class="view" hidden></section>
+</main>
+
+<footer class="pubfoot" id="pubfoot">
+  <div class="wrap pubfoot-in">
+    <span><i class="dot"></i> Atlas Anatomi untuk edukasi pasien</span>
+    <span>Akses publik tanpa login</span>
+  </div>
+</footer>
+
+<!-- ============ SHELL PANEL DOKTER ============ -->
+<div id="adminshell" class="adminshell" hidden>
+  <aside class="side" id="side" aria-label="Menu Panel Dokter">
+    <a class="side-brand" href="#/kelola"><span class="brand-mark" data-ic="body"></span><span><b>Atlas Anatomi</b><small>Panel Dokter</small></span></a>
+    <nav class="side-nav">
+      <small class="side-label">Manajemen</small>
+      <a href="#/kelola" data-nav="list"><span data-ic="grid"></span>Daftar Gambar</a>
+      <a href="#/kelola/tambah" data-nav="add"><span data-ic="plus"></span>Tambah Gambar</a>
+      <a href="#/kelola/statistik" data-nav="stats"><span data-ic="chart"></span>Statistik</a>
+      <a href="#/kelola/riwayat" data-nav="log"><span data-ic="history"></span>Riwayat Aktivitas</a>
+      <small class="side-label">Navigasi</small>
+      <a href="#/"><span data-ic="globe"></span>Lihat Atlas</a>
+      <button type="button" id="btnLogout" class="side-out"><span data-ic="logout"></span>Keluar</button>
+    </nav>
+    <div class="side-foot"><span class="doc-badge"><span data-ic="lock"></span>KHUSUS DOKTER</span></div>
+  </aside>
+  <div class="side-scrim" id="scrim"></div>
+  <div class="adm-main">
+    <header class="admbar">
+      <button type="button" class="icon-btn adm-menu" id="btnMenu" aria-label="Buka menu" data-ic="menu"></button>
+      <div class="crumb" id="crumb"></div>
+      <div class="who"><div class="who-t"><b id="whoName"></b><span id="whoEmail"></span></div><span class="avatar" id="whoAv"></span></div>
+    </header>
+    <section id="view-admin" class="adm-body" aria-live="polite"></section>
+  </div>
+</div>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<div id="modal-root"></div>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/api.js"></script>
+<script src="js/compress.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
